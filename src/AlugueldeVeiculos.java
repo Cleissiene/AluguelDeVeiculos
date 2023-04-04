@@ -22,6 +22,8 @@ public class AlugueldeVeiculos extends JFrame implements ActionListener {
 
     }
 
+    private JButton salvar;
+
     public void alugacarros(){
         Container janela = getContentPane(); //variável
         setLayout(null);
@@ -70,11 +72,11 @@ public class AlugueldeVeiculos extends JFrame implements ActionListener {
         try {
 
             mascaraNome = new MaskFormatter("********************************");
-            mascaraCPF = new MaskFormatter("#########-##");
-            mascaraTel = new MaskFormatter("(##)####-####");
+            mascaraCPF = new MaskFormatter("###.###.###-##");
+            mascaraTel = new MaskFormatter("(##)#####-####");
             mascaraNomeCar = new MaskFormatter("*********************");
             mascaraPlaca = new MaskFormatter("UUU-####");
-            mascaraAno = new MaskFormatter("##/##/##");
+            mascaraAno = new MaskFormatter("####");
             mascaraDtaLoc = new MaskFormatter("##/##/####");
             mascaraDtaEnt = new MaskFormatter("##/##/####");
 
@@ -138,24 +140,28 @@ public class AlugueldeVeiculos extends JFrame implements ActionListener {
     //define formato da caixa principal
 
 
-        JButton salvar;
-        salvar = new JButton("SALVAR");
+         salvar = new JButton("SALVAR");
         salvar.setBounds(160,350,100,20);
         salvar.addActionListener(this);
         janela.add(salvar);
 
-        setSize(400,800);
+        setSize(500,800);
 
-        if()
-        JOptionPane.showMessageDialog(null, "Aluguel realizado com sucesso");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         setVisible(true);
 
     }
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton botaoFinal = (JButton) e.getSource();
 
+        if (botaoFinal == salvar) {
+
+
+            JOptionPane.showMessageDialog(null, "Aluguel realizado com sucesso");
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+        }
     }
 }
